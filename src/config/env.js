@@ -38,6 +38,30 @@ function asList(value, fallback = []) {
     .filter(Boolean);
 }
 
+function resolveTrustProxy(value, nodeEnv = 'development') {
+  const raw = String(value ?? '').trim();
+  if (!raw) {
+    // Render/prod environments commonly run behind a reverse proxy.
+    return String(nodeEnv).trim().toLowerCase() === 'production' ? 1 : false;
+  }
+
+  const normalized = raw.toLowerCase();
+  if (normalized === 'true' || normalized === 'yes') {
+    return true;
+  }
+  if (normalized === 'false' || normalized === 'no') {
+    return false;
+  }
+
+  const parsed = Number.parseInt(raw, 10);
+  if (Number.isFinite(parsed) && parsed >= 0) {
+    return parsed;
+  }
+
+  // Express also accepts subnet strings/lists for trust proxy.
+  return raw;
+}
+
 function normalizeSecret(value) {
   const trimmed = String(value ?? '').trim();
   if (!trimmed) {
@@ -111,6 +135,10 @@ function resolveSmtpSecureValue() {
 export const env = {
   nodeEnv: (process.env.NODE_ENV || 'development').trim(),
   port: asInt(process.env.PORT, 3000),
+  trustProxy: resolveTrustProxy(
+    process.env.TRUST_PROXY,
+    process.env.NODE_ENV || 'development',
+  ),
   logLevel: (process.env.LOG_LEVEL || 'info').trim().toLowerCase(),
   corsOrigins: asList(process.env.CORS_ORIGINS, ['*']),
   rateLimit: {
