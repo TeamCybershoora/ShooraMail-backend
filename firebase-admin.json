@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "shoora-mail-app",
+  "private_key_id": "dc5652d08eb746ab68af2403c55a6723f05a41e9",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQDVO2ezPBacVOqu\nD41d+VB9Dx4hi24ibw/hUfZWMJE24t2uPcidUITZHbvMJygMzgC97BS/XK6weooz\nQkXjwlwWGa8SKiUA/Kku1g78W5xc8LmVyKQ1pU5Q/3lo5pqu1DlfDBX+8TAX3Qh8\nDJDJJhgIlqB3cS99cozVACe3JSw2ZIQHpncGfgRyZhvffsArKCde3i4wzzNJMUK8\n7DGxLfI0h8EWdhidF3SwEhAJoeDYT+iM/9EoQq9ViNqE2Ei6FvqnvrvnNtMFyCXP\nqlme+DUCXPPylPnJb7ies8izyP5HT0FbBBuVC1diMLHEEB4rKqBrlrH8BMCu/aOk\nk5rVqJ4nAgMBAAECggEAafNej5ynz34SLfLkV3FuIPXGDvzs+Ice6OKE+EahoRgQ\n9mcUq7Y6jHdNvR8ns1UY4UXQ+VTgKCh7SwT/HTCR+RlB+FCgmmDw36jVQWdzxmqG\njHppvY4p3+1RMmKDMaOZ7jRfKZJGR1U4xgqoVoprHrlZen/vDPJCMAQnt8TstwlK\niEF+Yl19q1CSmBO2kftWnODRxo3FgcO4FGxcmc0Jf2A31+SFliJgoaeAAsG5Q+mS\n1ByKVyqzGveqfyUI+5KQf78kOkGQlihh+7Ql+z9V4Xf+DEYyUI7Q3qi+URn1MfU3\n429WWHvnJivnwbsiA5Yzf7cCpURj9KlX77yaER5sAQKBgQDyjyfZRCpNfuaMxoct\nEEUTsKaMeDOKJkG8D7oMlIXD0k90AtjX1exZpCv0bXuE5E0Eb3QdNQhVWdIN2O3d\nu048ctRufZavyI4/ZwNrODbdt/8YktmFkEhn28VBP3hCNEHQq71LqflSPonaDYPY\nIFfqo9W0Pd0DS8fq6mfaOMPegQKBgQDhDDoDJC/t2WFzS1tEsojy2XWvT4UVB9Hb\ntGzIhMLSPowEDwUzfKxzqRBTkNDTl2miYWkf7+r+91JBgH4mL+fvx0xRraDu0j1z\nyc2AgNA8xn/yrFUL1UXemgohfh/RhWbbgDVYhSMRCniaKS0vAKoW3qh5847HKK3W\n+DWMnpZ4pwKBgQCzmJWrxFICMVzpjTGXhz1uV9TpmzKmLq9rXMWn/OySUo0r29PM\n9ANdWDaHc+0KN7Ri/VcfLR4vfCMQx7dP/xjtnyR1bx38p+XTQiYA5I2TW2JRQqI2\nx98kr0/9gM49Ts4QgKjXdlI5uD5/qpQdmc0e2hIos8mKYDj1Unx00qUMgQKBgQCn\nDzZ5YoGZ5QbsWYJVCtuSu08bZsJ6DCYDHHqsl7Ev9XJnCOdpgyFZcqVGA3ihugKW\nog0xwh4GS35qVYJPwrxASQgkkemnn7YyoBnHTNhIZWpRsRApCpclWeAvYLsqBAeI\n5jGzlpGjcsx4VBzQiYO6Gmuiq+TPfykdLYBC9O7qfQKBgQCxKaipDuF2zWrrJNwx\nLJ2EJ6LYkQ5jPn7g6Daa9Y0V9Zpla3IWg68oyk8oRNB4kMEB8HW+s0MREQvlyi1P\nBTdCFJJhGLnEaZQn0TBPcggUKogk6AYRo2/vjIF8PSu9Y4IJUTpeDpr48GP0ets6\n4j0rHU9PbhGxIyIfI7gcpAPvnQ==\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-fbsvc@shoora-mail-app.iam.gserviceaccount.com",
+  "client_id": "107179414512595434070",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-fbsvc%40shoora-mail-app.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
