@@ -18,13 +18,52 @@ const TOKEN_ERROR_CODE_PARTS = [
 const ANDROID_NOTIFICATION_CHANNEL_ID = 'shoora_mail_new_mail';
 const MAX_FCM_TTL_SECONDS = 2_419_200; // 28 days (FCM maximum).
 
+function normalizeServiceAccountPayload(payload) {
+  if (!payload || typeof payload !== 'object' || Array.isArray(payload)) {
+    return payload;
+  }
+
+  const normalized = { ...payload };
+  if (typeof normalized.private_key === 'string') {
+    // Render / shell envs commonly escape this field as "\\n".
+    normalized.private_key = normalized.private_key.replace(/\\n/g, '\n').trim();
+  }
+  return normalized;
+}
+
+function parseServiceAccountJson(raw) {
+  const input = String(raw || '').trim();
+  if (!input) {
+    return null;
+  }
+
+  const candidates = [input];
+  if (
+    (input.startsWith("'") && input.endsWith("'")) ||
+    (input.startsWith('"') && input.endsWith('"'))
+  ) {
+    candidates.push(input.slice(1, -1).trim());
+  }
+
+  let lastError = null;
+  for (const candidate of candidates) {
+    try {
+      const parsed = JSON.parse(candidate);
+      if (typeof parsed === 'string') {
+        return normalizeServiceAccountPayload(JSON.parse(parsed));
+      }
+      return normalizeServiceAccountPayload(parsed);
+    } catch (error) {
+      lastError = error;
+    }
+  }
+
+  throw new Error(`Invalid FCM_SERVICE_ACCOUNT_JSON: ${lastError?.message || 'Unable to parse JSON'}`);
+}
+
 function loadServiceAccount({ path: serviceAccountPath, json }) {
   if (json) {
-    try {
-      return JSON.parse(json);
-    } catch (error) {
-      throw new Error(`Invalid FCM_SERVICE_ACCOUNT_JSON: ${error.message}`);
-    }
+    return parseServiceAccountJson(json);
   }
 
   const configuredPath = String(serviceAccountPath || '').trim();
@@ -45,7 +84,7 @@ function loadServiceAccount({ path: serviceAccountPath, json }) {
         continue;
       }
       const raw = fs.readFileSync(candidate, 'utf8');
-      return JSON.parse(raw);
+      return normalizeServiceAccountPayload(JSON.parse(raw));
     }
 
     throw new Error(
